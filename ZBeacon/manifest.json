@@ -5,7 +5,7 @@
 	"short_name":"ZBeacon",
   	"author":"anon33",
 	"description":"Fight back against surveillance",
-	"version":"1.0.1",
+	"version":"1.0.3",
   	"homepage_url":"https://zbeacon.glitch.me/",
 	
 	"browser_specific_settings": {
