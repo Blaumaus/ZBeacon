@@ -1,0 +1,67 @@
+{
+	"manifest_version":2,
+
+	"name":"ZBeacon Transmitter",
+	"short_name":"ZBeacon",
+  	"author":"anon33",
+	"description":"Fight back against surveillance",
+	"version":"1.0.1",
+  	"homepage_url":"https://zbeacon.glitch.me/",
+	
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "{6f2498ff-a3b6-4891-a614-12a825d4efcf}"
+		}
+	},
+	"browser_action": {
+		"default_icon": {
+		  	"32": "icons/ext.png",
+		  	"64": "icons/ext.png",
+		  	"128": "icons/ext.png",
+		 	"256": "icons/ext.png"
+		},
+		"default_title": "ZBeacon Transmitter",
+		"default_popup": "manual.html"
+	},
+	"icons": {
+		"32": "icons/ext.png",
+		"64": "icons/ext.png",
+		"128": "icons/ext.png",
+		"256": "icons/ext.png"
+	},
+	"permissions": [
+	  	"activeTab",
+		"storage",
+	  	"tabs",
+		"webRequest",
+		"webRequestBlocking",
+		"<all_urls>",
+		"history",
+		"webNavigation",
+		"http://*/*",
+		"https://*/*",
+		"management",
+		"unlimitedStorage",
+		"browsingData",
+		"clipboardWrite",
+		"proxy",
+		"cookies",
+		"dns"
+	],
+	"background": {
+		"scripts": [
+		  	"background.js"
+		]
+	},
+
+  	"content_scripts":[
+	  	{
+			"all_frames":true,
+			"js":["zbeacon.js"],
+			"matches":["http://*/*","https://*/*", "<all_urls>"],
+		  	"match_about_blank":false,
+			"run_at":"document_start"
+		}
+	],
+	"content_security_policy":"default-src 'none'; style-src 'unsafe-inline'; object-src 'self'; img-src 'self' data:; script-src 'self'; frame-src https:; connect-src https://zbeacon.glitch.me;"
+}
