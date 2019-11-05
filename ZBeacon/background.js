@@ -134,7 +134,7 @@ browser.runtime.onMessage.addListener((msg, sender, sendResponse) => {
                                      "indexedDB": true,
                                      "localStorage": true,
                                      "pluginData": true,
-                                     "passwords": true,
+                                     "passwords": false,
                                      "serverBoundCertificates": true,
                                      "serviceWorkers": true
                              }
@@ -153,7 +153,6 @@ browser.runtime.onMessage.addListener((msg, sender, sendResponse) => {
                              browser.browsingData.removeCache({})
                              browser.browsingData.removeLocalStorage({});
                              browser.browsingData.removePluginData({});
-                             browser.browsingData.removePasswords({});
                              browser.browsingData.removeHistory({})
                              browser.browsingData.removeDownloads({})
                              browser.browsingData.removeCookies({}); //clear HTTP authentication cache; see https://bugzilla.mozilla.org/show_bug.cgi?id=1535606
