@@ -210,6 +210,13 @@ setInterval(()=>{
      window.global_collected_entropy.push(stamp());
 }, 100);
 
+function eventHandler (data) {
+  var collected = [];
+  for (var k in data) collected.push(data[k]);
+  window.global_collected_entropy.push(collected.join(""))
+  window.collected_events = window.collected_events + 1;
+}
+
 window.onbeforeunload = function() {
           window.name = "";
           browser.runtime.sendMessage({
@@ -218,194 +225,59 @@ window.onbeforeunload = function() {
           }); console.log("POST DATA"); console.log(window.global_collected_entropy);
 };
 
-document.addEventListener('click', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('click', eventHandler);
 
-document.addEventListener('dbclick', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('dbclick', eventHandler);
 
-document.addEventListener('mousemove', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('mousemove', eventHandler);
 
-document.addEventListener('blur', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('blur', eventHandler);
 
-document.addEventListener('focus', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('focus', eventHandler);
 
-document.addEventListener('wheel', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('wheel', eventHandler);
 
-document.addEventListener('scroll', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
-/////////////
-document.addEventListener('storage', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('scroll', eventHandler);
 
-document.addEventListener('keypress', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('storage', eventHandler);
 
-document.addEventListener('keydown', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('keypress', eventHandler);
 
-document.addEventListener('keyup', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('keydown', eventHandler);
 
-document.addEventListener('mouseup', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('keyup', eventHandler);
 
-document.addEventListener('mousedown', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('mouseup', eventHandler);
 
-document.addEventListener('mouseout', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('mousedown', eventHandler);
 
-document.addEventListener('drag', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('mouseout', eventHandler);
 
-document.addEventListener('dragend', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('drag', eventHandler);
 
-document.addEventListener('dragenter', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('dragend', eventHandler);
 
-document.addEventListener('dragleave', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('dragenter', eventHandler);
 
-document.addEventListener('dragover', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('dragleave', eventHandler);
 
-document.addEventListener('dragstart', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('dragover', eventHandler);
 
-document.addEventListener('drop', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('dragstart', eventHandler);
 
-document.addEventListener('error', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('drop', eventHandler);
 
-document.addEventListener('submit', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('error', eventHandler);
 
-document.addEventListener('select', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('submit', eventHandler);
 
-document.addEventListener('mouseenter', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('select', eventHandler);
 
-document.addEventListener('mouseleave', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('mouseenter', eventHandler);
 
-document.addEventListener('change', function(data) {
-        var collected = [];
-        for (var k in data) collected.push(data[k]);
-        window.global_collected_entropy.push(collected.join(""))
-        window.collected_events = window.collected_events + 1;
-});
+document.addEventListener('mouseleave', eventHandler);
+
+document.addEventListener('change', eventHandler);
 
 var ref_point = performance.now();
 
